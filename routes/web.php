@@ -69,8 +69,4 @@ Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::resource('/products',ProductsController::class );
-Route::resource('/productsAdmin',ProductAdminController::class );
-Route::resource('/roomsAdmin',RoomController::class );
-Route::resource('/categoryAdmin',CategoryController::class );
-Route::resource('/reviewsAdmin',ReviewController::class );
 Route::resource('/users',UsersController::class);
