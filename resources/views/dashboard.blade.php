@@ -28,10 +28,10 @@
                     <img src="/images/pro.png" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h1 class="card-title">Categories</h1><br>
-                        <h5 class="card-title">Number Of Categories : ({{ "0" }})</h5>
+                        <h5 class="card-title">Number Of Categories : ({{ '0' }})</h5>
 
                         <br>
-                        <a href="{{ route('categoryAdmin.index') }}"
+                        <a href="{{ route('admin.categories.index') }}"
                             class=" btn btn-primary text-white text-decoration-none col-6 ">
                             <h6 class="text-white m-0 p-0">
                                 Categories
@@ -51,7 +51,7 @@
                         <h5 class="card-title">Number Of Products : ({{ '#0' }})</h5>
 
                         <br>
-                        <a href="{{ route('roomsAdmin.index') }}"
+                        <a href="{{ route('admin.roomsAdmin.index') }}"
                             class=" btn btn-primary text-white text-decoration-none col-6 ">
                             <h6 class="text-white m-0 p-0">
                                 Show Rooms
@@ -73,7 +73,7 @@
                         <h5 class="card-title">Number Of Reservations : ({{ '0' }})</h5>
 
                         <br>
-                        <a href="{{ route('productsAdmin.index') }}"
+                        <a href="{{ route('admin.productsAdmin.index') }}"
                             class=" btn btn-primary text-white text-decoration-none col-6 ">
                             <h6 class="text-white m-0 p-0">
                                 Show Reservations
@@ -95,7 +95,7 @@
                         <h5 class="card-title">Number Of Reviews : ({{ '0' }})</h5>
 
                         <br>
-                        <a href="{{ route('reviewsAdmin.index') }}"
+                        <a href="{{ route('admin.reviewsAdmin.index') }}"
                             class=" btn btn-primary text-white text-decoration-none col-6 ">
                             <h6 class="text-white m-0 p-0">
                                 Show Reviews

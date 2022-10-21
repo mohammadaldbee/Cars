@@ -16,11 +16,11 @@
 
         <div class="card">
             <div class="card-header">Add a Category
-                <a href="{{ route('categoryAdmin.index') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
+                <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
             </div>
 
             <div class="card-body">
-                <form method="post" action="{{ route('categoryAdmin.store') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('admin.categoryAdmin.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
                         <label class="col-sm-2 col-label-form">Category Name</label>
@@ -28,7 +28,7 @@
                             <input type="text" name="cat_name" class="form-control" />
                         </div>
                     </div>
-                
+
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-label-form">Image</label>

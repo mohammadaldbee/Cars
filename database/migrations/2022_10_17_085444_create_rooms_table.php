@@ -20,6 +20,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->decimal('room_price');
             $table->text('room_description');
+            $table->string('name');
             $table->string('room_image')->nullable();
             $table->string('status')->default('1');
             $table->timestamps();

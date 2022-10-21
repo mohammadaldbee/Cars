@@ -12,7 +12,7 @@ class room extends Model
   protected $fillable =
   [
     'cat_name', 'num_of_beds', 'room_price',
-    'status', 'room_img', 'room_description'
+    'status', 'room_img', 'room_description', 'name'
   ];
 
 
@@ -25,5 +25,5 @@ class room extends Model
   {
     return $this->hasMany(review::class);
   }
- 
+
 }

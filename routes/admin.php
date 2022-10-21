@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
@@ -12,12 +14,11 @@ use App\Http\Controllers\RoomController;
 
 
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::resource('/products', ProductsController::class);
+    Route::resource('/users', UsersController::class);
+    Route::resource('/booking', BookingController::class);
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::resource('/categories', CategoryController::class);
-    Route::resource('/menus', MenuController::class);
-    Route::resource('/tables', TableController::class);
-    Route::resource('/reservations', ReservationController::class);
-
     Route::resource('/productsAdmin', ProductAdminController::class);
     Route::resource('/roomsAdmin', RoomController::class);
     Route::resource('/categoryAdmin', CategoryController::class);

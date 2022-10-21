@@ -16,7 +16,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        
+
         $reviews = DB::table('reviews')
         ->join('users', 'users.id', '=', 'reviews.user_id')
         ->select('reviews.*', 'users.name')

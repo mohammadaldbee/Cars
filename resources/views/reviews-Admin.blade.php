@@ -14,7 +14,7 @@
         @endif
 
         <h1 class="text-center">All Reviews</h1>
-        <a href="{{ route('dashboard') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
         <br><br>
 
         <table class="table table-striped">
@@ -34,10 +34,10 @@
                 @foreach ($reviews as $row)
                     <tr>
                         <td>{{ $row->name }}</td>
-                        <td>{{ $row->room_id}}</td>
+                        <td>{{ $row->room_id }}</td>
                         <td>{{ $row->Review }}</td>
                         <td>{{ $row->created_at }}</td>
-                        <form class="float-end" method="post" action="{{ route('reviewsAdmin.destroy', $row->id) }}">
+                        <form class="float-end" method="post" action="{{ route('admin.reviewsAdmin.destroy', $row->id) }}">
                             @csrf
                             @method('DELETE')
                             <td><input onclick="return confirm('Are you sure you want to delete this Room?')" type="submit"

@@ -1,14 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProductAdminController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,16 +30,12 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 
-Route::get('/booking', function () {
-    return view('pages.booking');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/room', function () {
-    return view('pages.room');
-});
+
+Route::get('/room', [RoomListingController::class, 'index'])->name('room');
+
 Route::get('/service', function () {
     return view('pages.service');
 });
@@ -66,7 +58,3 @@ Route::get('/Terms and Condition', function () {
 
 
 Auth::routes();
-
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-Route::resource('/products',ProductsController::class );
-Route::resource('/users',UsersController::class);

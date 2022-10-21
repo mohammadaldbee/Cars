@@ -16,11 +16,11 @@
 
         <div class="card">
             <div class="card-header">Add a Product
-                <a href="{{ route('roomsAdmin.index') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
+                <a href="{{ route('admin.roomsAdmin.index') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
             </div>
 
             <div class="card-body">
-                <form method="post" action="{{ route('roomsAdmin.store') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('admin.roomsAdmin.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
                         <label class="col-sm-2 col-label-form">Number of beds</label>

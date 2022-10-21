@@ -15,8 +15,8 @@
 
 
         <h1 class="text-center">All Products</h1>
-        <a class="btn btn-success" href="{{ route('roomsAdmin.create') }}">Add a Room</a>
-        <a href="{{ route('dashboard') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
+        <a class="btn btn-success" href="{{ route('admin.roomsAdmin.create') }}">Add a Room</a>
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary btn-sm float-end"> Go Back</a>
         <br><br>
 
         <table class="table table-striped">
@@ -34,8 +34,8 @@
             <tbody>
 
 
-    
-{{-- {{$categories}}
+
+                {{-- {{$categories}}
 {{$rooms}} --}}
 
 
@@ -46,18 +46,19 @@
                         <td>{{ $row->cat_name }}</td>
                         <td>{{ $row->room_price }} $</td>
                         <td>
-                        @if($row->status==1)
-                        {{'Avillable'}}  
-                        @else
-                        {{'Bocked'}}
-                        @endif
+                            @if ($row->status == 1)
+                                {{ 'Avillable' }}
+                            @else
+                                {{ 'Bocked' }}
+                            @endif
                         </td>
 
                         <td>{{ $row->room_description }}</td>
-                        
+
                         <td><img width="50px" height="50px" src="{{ asset('images/' . $row->room_image) }}"></td>
-                        <td><a href="{{ route('roomsAdmin.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a></td>
-                        <form class="float-end" method="post" action="{{ route('roomsAdmin.destroy', $row->id) }}">
+                        <td><a href="{{ route('admin.roomsAdmin.edit', $row->id) }}"
+                                class="btn btn-warning btn-sm">Edit</a></td>
+                        <form class="float-end" method="post" action="{{ route('admin.roomsAdmin.destroy', $row->id) }}">
                             @csrf
                             @method('DELETE')
                             <td><input onclick="return confirm('Are you sure you want to delete this Room?')" type="submit"

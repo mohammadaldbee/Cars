@@ -20,10 +20,10 @@
 
 <div class="card">
 	<div class="card-header">Add a Product
-		<a href="{{route('productsAdmin.index')}}" class="btn btn-secondary btn-sm float-end" > Go Back</a>
+		<a href="{{route('admin.productsAdmin.index')}}" class="btn btn-secondary btn-sm float-end" > Go Back</a>
 	</div>
 	<div class="card-body">
-		<form method="post" action="{{ route('productsAdmin.store') }}" enctype="multipart/form-data">
+		<form method="post" action="{{ route('admin.productsAdmin.store') }}" enctype="multipart/form-data">
 			@csrf
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Product Name</label>
@@ -58,7 +58,7 @@
 			</div>
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary float-end" value="Add" />
-			</div>	
+			</div>
 		</form>
 	</div>
 </div>

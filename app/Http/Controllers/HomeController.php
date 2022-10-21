@@ -30,7 +30,7 @@ class HomeController extends Controller
         $allUsers = User::get()->where('role', 'user');
         $allProducts = Product::all()->count();
         if ($user == 'admin') {
-            return view('dashboard', [
+            return view('.dashboard', [
                 'allUsers' => $allUsers->count(),
                 'allProducts'=> $allProducts
             ]);

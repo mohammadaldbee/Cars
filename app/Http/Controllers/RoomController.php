@@ -25,6 +25,7 @@ class RoomController extends Controller
         ->join('categories', 'rooms.cat_id', '=', 'categories.id')
         ->select('rooms.*', 'categories.cat_name')
         ->get();
+
         return view('rooms-Admin', ['rooms' =>$rooms]);
     }
 
@@ -52,7 +53,7 @@ class RoomController extends Controller
     {
         $request->validate([
             'num_of_beds'          => 'required',
-            
+
             'room_price'        => 'required',
             'room_description'   => 'required',
             'room_image'           => 'required|image'
@@ -72,7 +73,7 @@ class RoomController extends Controller
 
         $room->save();
 
-        return redirect('roomsAdmin')->with('success', 'Room Data Add successfully');
+        return redirect('admin/roomsAdmin')->with('success', 'Room Data Add successfully');
     }
 
     /**
@@ -103,7 +104,7 @@ class RoomController extends Controller
             'auth_user'=>Auth::user(),
 
         ]);
-     
+
     }
 
     /**
@@ -146,7 +147,7 @@ class RoomController extends Controller
 
         $rooms->save();
 
-        return redirect('roomsAdmin')->with('success', 'Room Data update successfully');
+        return redirect('admin/roomsAdmin')->with('success', 'Room Data update successfully');
     }
 
     /**
@@ -159,6 +160,6 @@ class RoomController extends Controller
     {
         $userDestroy = Room::find($id);
         $userDestroy->destroy($id);
-        return redirect('roomsAdmin')->with('success', ' Room Data deleted successfully');
+        return redirect('admin/roomsAdmin')->with('success', ' Room Data deleted successfully');
     }
 }
