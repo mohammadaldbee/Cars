@@ -5,15 +5,14 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoomController;
+use App\Http\Middleware\AdminMiddleware;
 
-
-Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function () {
+Route::middleware([AdminMiddleware::class])->name('admin.')->prefix('admin')->group(function () {
     Route::resource('/products', ProductsController::class);
     Route::resource('/users', UsersController::class);
     Route::resource('/booking', BookingController::class);

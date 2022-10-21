@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -16,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     /**
@@ -26,16 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->role;
         $allUsers = User::get()->where('role', 'user');
         $allProducts = Product::all()->count();
-        if ($user == 'admin') {
-            return view('.dashboard', [
-                'allUsers' => $allUsers->count(),
-                'allProducts'=> $allProducts
-            ]);
-        } else {
-            return redirect('/index');
-        }
+
+        return view('.dashboard', [
+            'allUsers' => $allUsers->count(),
+            'allProducts' => $allProducts
+        ]);
     }
 }

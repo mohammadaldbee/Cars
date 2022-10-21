@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ProductAdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -86,7 +92,7 @@ class ProductAdminController extends Controller
     public function edit($id)
     {
 
-        
+
         $products = Product::find($id);
         return view('edit_product', compact('products'));
     }
@@ -105,10 +111,10 @@ class ProductAdminController extends Controller
         'description'   =>'required',
         'price'        =>'required',
         'quantity'        =>'required'
-   
+
     ]);
 
-   
+
 
         if($request->image != "")
         {
@@ -116,9 +122,9 @@ class ProductAdminController extends Controller
             request()->image->move(public_path('images'), $product_img);
         }else{
             $product_img = $request->hidden_img;
-            
+
         }
-       
+
 
         $product = Product::find($id);
         $product->product_name = $request->product_name;

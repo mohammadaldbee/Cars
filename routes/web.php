@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomListingController;
+use App\Http\Middleware\GuestMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +16,8 @@ use App\Http\Controllers\RoomListingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('pages.index');
@@ -36,6 +38,15 @@ Route::get('/contact', function () {
 
 Route::get('/room', [RoomListingController::class, 'index'])->name('room');
 
+
+Route::middleware([GuestMiddleware::class])->group(function () {
+
+    Route::get('/room/{id}/book', [RoomListingController::class, 'book'])->name('room.book');
+
+    Route::post('/room/{id}/booking/confirm', [RoomListingController::class, 'confirm'])->name('room.book.confirm');
+});
+
+
 Route::get('/service', function () {
     return view('pages.service');
 });
@@ -55,6 +66,14 @@ Route::get('/Terms and Condition', function () {
     return view('pages.Terms and Condition');
 });
 
+Route::get('/dashboard', [RoomListingController::class, 'index'])->name('dashboard');
 
 
-Auth::routes();
+
+Route::get('middleware', function () {
+    $collection = collect(Route::getRoutes())->map(function ($r) {
+        if (isset($r->action['middleware']))
+            return $r->action['middleware'];
+    })->flatten();
+    return array_unique($collection->toArray());
+});

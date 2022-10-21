@@ -106,11 +106,12 @@
                                         Bath</small>
                                     <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                    sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">{{ $room->room_description }}</p>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4"
+                                        href="{{ route('room.book', $room->id) }}">Book
+                                        Now</a>
                                 </div>
                             </div>
                         </div>
