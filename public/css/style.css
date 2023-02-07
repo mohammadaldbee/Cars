@@ -12,7 +12,11 @@
 .fw-semi-bold {
     font-weight: 600 !important;
 }
-
+.car{
+    /* margin-right: 10px; */
+    /* color:blue; */
+    color:#4d4d8d;
+}
 .back-to-top {
     position: fixed;
     display: none;
@@ -74,8 +78,12 @@
     font-weight: normal;
     border-radius: 2px;
 }
-
-
+.items{
+    text-align: center;
+}
+.about{
+    color:gray
+}
 /*** Navbar ***/
 .navbar-dark .navbar-nav .nav-link {
     margin-right: 30px;
@@ -203,7 +211,7 @@
 }
 
 .service-item:hover {
-    background: var(--primary);
+    background:black;
 }
 
 .service-item .service-icon {
@@ -231,7 +239,7 @@
     position: relative;
     height: 100%;
     min-height: 500px;
-    background: linear-gradient(rgba(15, 23, 43, .1), rgba(15, 23, 43, .1)), url(../img/video.jpg);
+    background: linear-gradient(rgba(15, 23, 43, .1), rgba(15, 23, 43, .1)), url(../img/car4.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -263,7 +271,7 @@
     display: block;
     width: 100px;
     height: 100px;
-    background: var(--primary);
+    background:black;
     border-radius: 50%;
     animation: pulse-border 1500ms ease-out infinite;
 }
@@ -278,7 +286,7 @@
     display: block;
     width: 100px;
     height: 100px;
-    background: var(--primary);
+    background: white;
     border-radius: 50%;
     transition: all 200ms;
 }
@@ -346,7 +354,7 @@
 
 /*** Testimonial ***/
 .testimonial {
-    background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url(../img/carousel-2.jpg);
+    background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url(../img/car2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
